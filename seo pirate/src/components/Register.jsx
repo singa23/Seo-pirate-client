@@ -10,6 +10,8 @@ function Register() {
 
   const navigate = useNavigate();
 
+  const serverURL = "http://localhost:5005";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -17,17 +19,14 @@ function Register() {
       return;
     }
 
-    try {
-      // Assume your server has an endpoint at "/api/register"
-      // that accepts a POST request with a body of
-      // { username, email, password }
-      // and it responds with status 200 when registration is successful
-      await axios.post("/api/register", { username, email, password });
-      console.log("Registration successful");
-      navigate("/login"); // navigate to login page
-    } catch (error) {
-      console.error("Registration failed", error);
-    }
+    const body = { username, email, password };
+    axios
+      .post(`${serverURL}/api/register`, body)
+      .then((response) => {
+        console.log("Registration successful");
+        navigate("/login");
+      })
+      .catch((error) => console.error("Registration failed", error));
   };
 
   return (
@@ -37,7 +36,7 @@ function Register() {
           Username:
           <input
             type="text"
-            value={username}
+            value={username} // <-- Utilisez 'username' ici
             onChange={(e) => setUsername(e.target.value)}
             required
           />

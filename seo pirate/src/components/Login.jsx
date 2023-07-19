@@ -22,11 +22,11 @@ function Login() {
 
     const body = { username, password };
     axios
-      .post(`${API_URL}/auth/login`, body)
+      .post(`${API_URL}/api/login`, body)
       .then((response) => {
         // Handle login logic here
         console.log("Login successful");
-        navigate("/dashboard"); // navigate to the dashboard or any other page after successful login
+        navigate("/homepage"); // navigate to the dashboard or any other page after successful login
       })
       .catch((err) => console.log(err));
   };
