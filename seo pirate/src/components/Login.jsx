@@ -1,34 +1,32 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-
-const API_URL = "http://localhost:5005";
+import { AuthContext } from "../context/auth.context";
+import "./login.css";
 
 function Login() {
+  const { logInUser } = React.useContext(AuthContext);
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleInputUsername = (e) => {
-    setUsername(e.target.value);
-  };
-  const handleInputPassword = (e) => {
-    setPassword(e.target.value);
+  const handleInputUsername = (event) => {
+    setUsername(event.target.value);
   };
 
-  const navigate = useNavigate();
+  const handleInputPassword = (event) => {
+    setPassword(event.target.value);
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const body = { username, password };
-    axios
-      .post(`${API_URL}/api/login`, body)
-      .then((response) => {
-        // Handle login logic here
-        console.log("Login successful");
-        navigate("/homepage"); // navigate to the dashboard or any other page after successful login
-      })
-      .catch((err) => console.log(err));
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const userCredentials = { username, password };
+    try {
+      await logInUser(userCredentials);
+      navigate("/homepage");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
