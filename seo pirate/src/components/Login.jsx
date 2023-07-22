@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import "./login.css";
+import logo from "../assets/Logo.png";
+import barreNav from "../assets/barreDeNav.png";
 
 function Login() {
   const { logInUser } = React.useContext(AuthContext);
@@ -28,12 +30,14 @@ function Login() {
       console.error(error);
     }
   };
-
   return (
     <div className="loginPage">
+      <div className="logoContainer">
+        <img src={logo} alt="logo" />
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="champ">
-          <h1>Login</h1>
+          <img src={logo} alt="logo" />
           <label>
             Username
             <input
@@ -43,7 +47,6 @@ function Login() {
               onChange={handleInputUsername}
             />
           </label>
-
           <label>
             Password
             <input
@@ -53,12 +56,15 @@ function Login() {
               onChange={handleInputPassword}
             />
           </label>
-
-          <button type="submit">Log in</button>
-        </div>
-        <div className="createPart">
-          <h2>Don't have an SEO Pirate account?</h2>
-          <button onClick={() => navigate("/register")}>Register</button>
+          <button type="submit" className="submit">
+            Log in <img src={barreNav} />
+          </button>
+          <div className="createPart">
+            <h2>Don't have an SEO Pirate account?</h2>
+            <button onClick={() => navigate("/register")} className="register">
+              Register
+            </button>
+          </div>
         </div>
       </form>
     </div>

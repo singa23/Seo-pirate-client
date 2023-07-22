@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./register.css";
+import logo from "../assets/Logo.png";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
 
   const navigate = useNavigate();
 
@@ -16,6 +19,10 @@ function Register() {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Passwords do not match");
+      return;
+    }
+    if (email !== confirmEmail) {
+      alert("Emails do not match");
       return;
     }
 
@@ -30,46 +37,69 @@ function Register() {
   };
 
   return (
-    <div className="Register">
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username} // <-- Utilisez 'username' ici
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Confirm Password:
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <input type="submit" value="Register" />
-      </form>
+    <div className="registerPage">
+      <img className="logoContainer" src={logo} alt="logo" />
+      <div className="formContainer">
+        <form onSubmit={handleSubmit}>
+          <label className="inputFull">
+            Username:
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Confirm Email:
+            <input
+              type="email"
+              value={confirmEmail}
+              onChange={(e) => setConfirmEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Confirm Password:
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </label>
+          <input type="submit" value="Register" className="inputFull BTN" />
+          <div className="inputFull">
+            <p>Already have an SEO Pirate account?</p>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/login");
+              }}
+            >
+              Log in
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

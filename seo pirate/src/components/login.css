@@ -1,9 +1,86 @@
-#root {
-    background: url("../assets/loginbg.png") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-  }
+.loginPage {
+  background-image: url("../assets/loginbg.png");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.champ {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.champ h1 {
+  text-align: center;
+}
+
+.champ label {
+  margin: 10px 0;
+}
+
+.champ input {
+  width: 125%;
+    background-color: #D9D9D9;
+    padding-top: 20px;
+    color: black ;
+}
+
+.champ button {
+  margin-top: 20px;
+  background-color: #F3BB4A;
+  border: none;
+  padding: 5px 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.createPart {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.createPart button {
+  background-color: transparent;
+  color: #F3BB4A;
+  border: 2px solid #F3BB4A;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; 
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.createPart button:hover {
+  background-color: #F3BB4A; 
+  color: white; 
+  border-color: #F3BB4A; 
+}
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit:hover{
+opacity: 0.5;
+}
+
+h2{
+font-size: medium;
+}
+.logoContainer {
+  position: fixed;
+  top: 20px;
+  left: 200px;
+  z-index: 1;
+}
