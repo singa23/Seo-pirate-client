@@ -41,6 +41,7 @@ function Register() {
       <img className="logoContainer" src={logo} alt="logo" />
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
+          <img src={logo} alt="logo" />
           <label className="inputFull">
             Username:
             <input
