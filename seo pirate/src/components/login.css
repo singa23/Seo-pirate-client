@@ -29,14 +29,14 @@
 
 .champ input {
   width: 125%;
-    background-color: #D9D9D9;
-    padding-top: 20px;
-    color: black ;
+  background-color: #d9d9d9;
+  padding-top: 20px;
+  color: black;
 }
 
 .champ button {
   margin-top: 20px;
-  background-color: #F3BB4A;
+  background-color: #f3bb4a;
   border: none;
   padding: 5px 50px;
   border-radius: 5px;
@@ -50,33 +50,33 @@
 
 .createPart button {
   background-color: transparent;
-  color: #F3BB4A;
-  border: 2px solid #F3BB4A;
+  color: #f3bb4a;
+  border: 2px solid #f3bb4a;
   padding: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer; 
-  transition: background-color 0.3s, color 0.3s; 
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .createPart button:hover {
-  background-color: #F3BB4A; 
-  color: white; 
-  border-color: #F3BB4A; 
+  background-color: #f3bb4a;
+  color: white;
+  border-color: #f3bb4a;
 }
-.submit{
+.submit {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.submit:hover{
-opacity: 0.5;
+.submit:hover {
+  opacity: 0.5;
 }
 
-h2{
-font-size: medium;
+.loginPage h2 {
+  font-size: medium;
 }
 .logoContainer {
   position: absolute;

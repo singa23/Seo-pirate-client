@@ -40,66 +40,69 @@ function Register() {
     <div className="registerPage">
       <img className="logoContainer" src={logo} alt="logo" />
       <div className="formContainer">
-        <form onSubmit={handleSubmit}>
-          <img src={logo} alt="logo" />
-          <label className="inputFull">
-            Username:
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Confirm Email:
-            <input
-              type="email"
-              value={confirmEmail}
-              onChange={(e) => setConfirmEmail(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-          <label>
-            Confirm Password:
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </label>
-          <input type="submit" value="Register" className="inputFull BTN" />
-          <div className="inputFull">
-            <p>Already have an SEO Pirate account?</p>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                navigate("/login");
-              }}
-            >
-              Log in
-            </button>
-          </div>
-        </form>
+        <div>
+          <img src={logo} alt="logo" className="logoform" />
+          <form onSubmit={handleSubmit}>
+            <label className="inputFull">
+              Username:
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Email:
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Confirm Email:
+              <input
+                type="email"
+                value={confirmEmail}
+                onChange={(e) => setConfirmEmail(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Password:
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Confirm Password:
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </label>
+            <input type="submit" value="Register" className="inputFull BTN" />
+            <div className="inputFull">
+              <p>Already have an SEO Pirate account?</p>
+              <button
+                className="registerBTN"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/login");
+                }}
+              >
+                Log in
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

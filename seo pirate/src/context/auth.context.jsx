@@ -12,10 +12,14 @@ function AuthProviderWrapper(props) {
   const logInUser = async (credentials) => {
     try {
       const response = await axios.post(`${API_URL}/api/login`, credentials);
-      const token = response.data.token;
+      const token = response.data.authToken;
+      setUser({
+        _id: response.data._id,
+        email: response.data.email,
+        name: response.data.name,
+      });
       localStorage.setItem("authToken", token);
       setIsLoggedIn(true);
-      setUser(response.data.user);
     } catch (error) {
       console.error(error);
       // Handle error
