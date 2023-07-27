@@ -41,7 +41,7 @@ body {
 .navbar ul li a:hover {
   color: #ddd;
 }
-h2 {
+.HomePage h2 {
   font-family: "Pirata One", cursive;
   font-size: 40px;
 }

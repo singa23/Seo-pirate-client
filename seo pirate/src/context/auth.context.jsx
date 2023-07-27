@@ -9,46 +9,67 @@ function AuthProviderWrapper(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
+  const loadUser = async () => {
+    setIsLoading(true);
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      try {
+        const response = await axios.get(`${API_URL}/api/verify`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setIsLoggedIn(true);
+        setUser(response.data);
+      } catch (error) {
+        console.error(error);
+        localStorage.removeItem("authToken"); // remove invalid token
+      }
+    }
+    setIsLoading(false);
+  };
+
+  const updateUserProfile = async (userId, newUsername, newPassword) => {
+    try {
+      const response = await axios.put(
+        `${API_URL}/api/user/${userId}`,
+        { username: newUsername, password: newPassword },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
+
+      if (response.data && response.data.user) {
+        loadUser();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const logInUser = async (credentials) => {
     try {
       const response = await axios.post(`${API_URL}/api/login`, credentials);
-      const token = response.data.authToken;
-      setUser({
-        _id: response.data._id,
-        email: response.data.email,
-        name: response.data.name,
-      });
-      localStorage.setItem("authToken", token);
-      setIsLoggedIn(true);
+      const { authToken, user } = response.data;
+      localStorage.setItem("authToken", authToken);
+      loadUser();
     } catch (error) {
       console.error(error);
       // Handle error
     }
   };
 
+  const logOutUser = () => {
+    localStorage.removeItem("authToken");
+    setIsLoggedIn(false);
+    setUser(null);
+  };
+
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    if (token) {
-      axios
-        .get(`${API_URL}/api/verify`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          setIsLoggedIn(true);
-          setUser(response.data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.error(error);
-          localStorage.removeItem("authToken"); // remove invalid token
-          setIsLoading(false);
-        });
-    } else {
-      setIsLoading(false);
-    }
-  }, [setIsLoggedIn, setUser]); // ajout de setIsLoggedIn et setUser aux dépendances
+    loadUser();
+  }, [setIsLoggedIn, setUser]);
 
   // log the current auth state each time it changes
   useEffect(() => {
@@ -56,7 +77,16 @@ function AuthProviderWrapper(props) {
   }, [isLoggedIn, isLoading, user]);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, logInUser }}>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        isLoading,
+        user,
+        logInUser,
+        logOutUser,
+        updateUser: updateUserProfile,
+      }}
+    >
       {props.children}
     </AuthContext.Provider>
   );

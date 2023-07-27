@@ -4,11 +4,13 @@ import "./homePage.css";
 import logo from "../assets/Logo.png";
 import closechest from "../assets/closechest.png";
 import openchest from "../assets/openchest.png";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 function HomePage() {
   const [chestImage, setChestImage] = useState(closechest);
   const navigate = useNavigate();
-
+  const { logOutUser } = useContext(AuthContext);
   return (
     <div className="HomePage">
       <img className="logoContainer" src={logo} alt="logo" />
@@ -24,7 +26,9 @@ function HomePage() {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/logout">Log Out</Link>
+            <Link to="/" onClick={logOutUser}>
+              Log Out
+            </Link>
           </li>
         </ul>
       </nav>

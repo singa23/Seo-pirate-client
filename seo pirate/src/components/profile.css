@@ -1,0 +1,41 @@
+.Profile {
+  background-image: url("../assets/profile.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Profile img {
+  padding-left: 35px;
+}
+.navbar {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+.navbar ul li a:hover {
+  color: #ddd;
+}
+.Profile .profileContainer {
+  width: 60%;
+  height: 60%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+}
+/* css the profile settings */
