@@ -37,5 +37,55 @@
   background-color: rgba(255, 255, 255, 0.7);
   border: 2px solid #ffffff;
   border-radius: 20px;
+  color: black;
 }
 /* css the profile settings */
+.Profile .containerempty {
+  height: 20%;
+}
+.Profile .profileTop {
+  display: flex;
+  align-items: center;
+}
+
+.Profile .profileImageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 50px;
+}
+
+.Profile .uploadButton {
+  align-self: center;
+  margin-top: 80px;
+}
+
+.Profile .profileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.Profile .profileItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.Profile .profileLabel {
+  margin-right: 10px;
+}
+
+.Profile .profileInput {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.Profile .changeButton {
+  background-color: #ffe5b1;
+  color: #f3bb4a;
+}
+.Profile .changeButton:hover {
+  background-color: #f3bb4a;
+  color: #ffe5b1;
+  border-color: #f3bb4a;
+}

@@ -49,15 +49,20 @@ function Profile() {
         </ul>
       </nav>
       <div className="profileContainer">
+        <div className="containerempty"></div>
         <div className="profileTop">
           <div className="profileImageContainer">
             <div className="profileImage"></div>
             <button className="uploadButton">Upload Photo</button>
           </div>
           <div className="profileInfo">
-            <div className="profileName">
-              <span>Username: {username}</span>
+            <div className="profileItem">
+              <span className="profileLabel">
+                <strong>Username:</strong>
+              </span>
+              {username}
               <input
+                className="profileInput"
                 type="text"
                 placeholder="New username"
                 value={newUsername}
@@ -67,18 +72,25 @@ function Profile() {
                 Change
               </button>
             </div>
-            <div className="profileEmail">
-              <span>Email: {email}</span>
+            <div className="profileItem">
+              <span className="profileLabel">
+                <strong>Email:</strong>
+              </span>
+              <span className="profileInput">{email}</span>
             </div>
-            <div className="profilePassword">
-              <span>Password: *****</span>
+            <div className="profileItem">
+              <span className="profileLabel">
+                <strong>Password:</strong>
+              </span>
               <input
+                className="profileInput"
                 type="password"
                 placeholder="New password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
               />
               <input
+                className="profileInput"
                 type="password"
                 placeholder="Confirm password"
                 value={confirmPassword}
@@ -90,6 +102,7 @@ function Profile() {
             </div>
           </div>
         </div>
+
         <div className="profileBottom">
           <div className="imageChoice">Image 1</div>
           <div className="imageChoice">Image 2</div>
