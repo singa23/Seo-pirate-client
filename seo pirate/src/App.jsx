@@ -5,6 +5,7 @@ import Register from "./components/Register";
 import IsPrivate from "./components/IsPrivate";
 import { AuthProvider } from "./context/auth.context";
 import Profile from "./components/Profile";
+import MyWebsites from "./components/MyWebsite";
 
 function App() {
   return (
@@ -27,6 +28,14 @@ function App() {
           element={
             <IsPrivate>
               <Homepage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/my-website"
+          element={
+            <IsPrivate>
+              <MyWebsites />
             </IsPrivate>
           }
         />

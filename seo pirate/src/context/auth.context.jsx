@@ -42,7 +42,8 @@ function AuthProviderWrapper(props) {
       );
 
       if (response.data && response.data.user) {
-        loadUser();
+        localStorage.setItem("authToken", response.data.authToken); // Update the token in localStorage
+        loadUser(); // Reload user info with new token
       }
     } catch (error) {
       console.error(error);

@@ -20,7 +20,7 @@ function HomePage() {
             <Link to="/homepage">Home</Link>
           </li>
           <li>
-            <Link to="/website">My Website</Link>
+            <Link to="/my-website">My Website</Link>
           </li>
           <li>
             <Link to="/profile">Profile</Link>
@@ -45,7 +45,7 @@ function HomePage() {
             alt="Treasure Chest"
             onMouseOver={() => setChestImage(openchest)}
             onMouseOut={() => setChestImage(closechest)}
-            onClick={() => navigate("/mywebsite")}
+            onClick={() => navigate("/my-website")}
           />
         </div>
       </div>

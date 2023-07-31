@@ -89,3 +89,22 @@
   color: #ffe5b1;
   border-color: #f3bb4a;
 }
+.Profile .imgcontainer {
+  background-color: rgba(255, 255, 255, 0.7);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 40%;
+  border-radius: 10px;
+  margin-left: 100px;
+  height: 150px;
+}
+
+.Profile h2 {
+  font-size: 10px;
+  margin-left: 80px;
+}
+.profileImageContainer img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}

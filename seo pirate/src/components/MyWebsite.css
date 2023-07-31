@@ -1,0 +1,68 @@
+.MyWebsite {
+  background-image: url("../assets/pirateship.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.MyWebsite .transparentcontainer {
+  width: 80%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-between;
+}
+.MyWebsite .logoContainer {
+  top: 0px;
+}
+
+.MyWebsite .topContainer1,
+.topContainer2 {
+  width: calc(50% - 10px);
+  height: 260px;
+  margin-top: 20px;
+  background-color: #f8f9fa;
+}
+
+.MyWebsite h2 {
+  margin-left: 20px;
+}
+
+.MyWebsite .bottomContainer {
+  width: 100%;
+  height: 320px;
+  background-color: #f8f9fa;
+}
+.MyWebsite span {
+  display: block;
+}
+.MyWebsite button {
+  margin-left: 200px;
+  margin-top: 40px;
+  padding-inline: 60px;
+  background-color: #f8f9fa;
+  color: #f3bb4a;
+  border-color: #f3bb4a;
+}
+.MyWebsite button:hover {
+  background-color: #f3bb4a;
+  color: white;
+  border-color: #f3bb4a;
+}
+.MyWebsite label {
+  margin-left: 60px;
+  display: inline-block;
+  width: 120px;
+}
+.MyWebsite input {
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 300px;
+}
