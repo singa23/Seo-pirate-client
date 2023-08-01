@@ -32,6 +32,14 @@ function App() {
           }
         />
         <Route
+          path="/my-website/:id"
+          element={
+            <IsPrivate>
+              <MyWebsites />
+            </IsPrivate>
+          }
+        />
+        <Route
           path="/my-website"
           element={
             <IsPrivate>
